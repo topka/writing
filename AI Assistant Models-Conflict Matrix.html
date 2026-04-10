@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Personal Assistant — Models vs. Conflicts Matrix</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a1a; padding: 32px; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 24px; }
+  .legend { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .legend-swatch { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ddd; }
+  .matrix-wrapper { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; min-width: 1400px; font-size: 13px; }
+  th, td { border: 1px solid #d0d0d0; padding: 10px 12px; text-align: left; vertical-align: top; }
+  th { background: #2c3e50; color: #fff; font-weight: 600; position: sticky; top: 0; z-index: 2; }
+  th.conflict-header { font-size: 12px; writing-mode: horizontal-tb; min-width: 110px; max-width: 140px; }
+  th.section-divider { background: #1a252f; border-left: 3px solid #e67e22; }
+  td.model-label { background: #f0f4f8; font-weight: 600; min-width: 180px; white-space: nowrap; position: sticky; left: 0; z-index: 1; border-right: 2px solid #2c3e50; }
+  td.model-label .model-num { color: #2c3e50; }
+  td.model-label .model-desc { font-weight: 400; color: #555; display: block; font-size: 11px; white-space: normal; margin-top: 2px; }
+  .group-row td { background: #2c3e50; color: #fff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td.section-break { border-left: 3px solid #e67e22; }
+  /* Cell ratings */
+  td.severe { background: #fde8e8; color: #8b1a1a; }
+  td.problematic { background: #fff3e0; color: #8b5e00; }
+  td.mixed { background: #fffde7; color: #6d6200; }
+  td.adequate { background: #e8f5e9; color: #2e6b2e; }
+  td.strong { background: #c8e6c9; color: #1b5e20; }
+  td.tbd { background: #f5f5f5; color: #999; font-style: italic; }
+  td .cell-label { font-weight: 600; font-size: 11px; display: block; margin-bottom: 3px; }
+  td .cell-detail { font-size: 12px; line-height: 1.4; }
+  .note-box { margin-top: 24px; padding: 16px; background: #fff; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; line-height: 1.6; }
+  h2 { font-size: 17px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<h1>AI Personal Assistant — Models vs. Conflicts Matrix</h1>
+<p class="subtitle">Evaluating 8 architectural models from three perspectives: employee's conflicts, organization's concerns, and practical viability. Working draft, March 2026.</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch" style="background:#c8e6c9"></div> Strong — resolved or favorable</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#e8f5e9"></div> Adequate — manageable with design effort</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#fffde7"></div> Mixed — trade-offs, gray zone</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#fff3e0"></div> Problematic — present, hard to resolve</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#fde8e8"></div> Severe — structural, likely unresolvable</div>
+</div>
+
+<div class="matrix-wrapper">
+<table>
+<thead>
+<tr>
+  <th style="min-width:180px; position:sticky; left:0; z-index:3;">Model</th>
+  <th class="conflict-header">C1: Personal life protection</th>
+  <th class="conflict-header">C2: Work-life separation</th>
+  <th class="conflict-header">C3: Whose growth?</th>
+  <th class="conflict-header">C4: Knowledge ownership</th>
+  <th class="conflict-header">C5: Whose agent?</th>
+  <th class="conflict-header">C6: Trust & transparency</th>
+  <th class="conflict-header">C7: Liability</th>
+  <th class="conflict-header section-divider">O1: Data security & IP protection</th>
+  <th class="conflict-header">O2: Compliance & audit</th>
+  <th class="conflict-header">O3: Control over work tools</th>
+  <th class="conflict-header">O4: Employee productivity gain</th>
+  <th class="conflict-header section-divider">V1: Implementation complexity</th>
+  <th class="conflict-header">V2: User experience</th>
+  <th class="conflict-header">V3: Feasibility today</th>
+</tr>
+</thead>
+<tbody>
+
+<!-- Group: Single-Assistant Models -->
+<tr class="group-row"><td colspan="15">Single-Assistant Models</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M1</span> Fully unified<span class="model-desc">No separation. One memory, one context.</span></td>
+  <!-- Employee conflicts -->
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">All personal data fully exposed.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">Separation is architecturally impossible.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Sees career exploration + employer needs.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">No separable "personal" portion on departure.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">Single optimization must choose a master.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">Opaque cross-domain influence.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">Liability chain completely tangled.</span></td>
+  <!-- Org concerns -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">All data in one system org controls. But personal data creates new exposure.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Full audit trail exists but personal data complicates regulatory compliance.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Org has full control over the system and its configuration.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Maximum context = maximum assistance. Best productivity if employee actually uses it.</span></td>
+  <!-- Viability -->
+  <td class="strong section-break"><span class="cell-label">Strong</span><span class="cell-detail">Simplest to build. One system, no boundaries to engineer.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Seamless UX. No context switching, no manual bridging.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">This is what most products are building today.</span></td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M2</span> Soft separation<span class="model-desc">Policy-based rules on cross-domain data flow.</span></td>
+  <!-- Employee conflicts -->
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Policies can be overridden or gamed. Data co-exists in one system.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Partial separation depends on policy quality.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">"Development" data is inherently both work and personal.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Tags help but extraction depends on org cooperation.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Who sets the policies? If org, optimization tilts toward org.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Policies are auditable in principle but complexity reduces transparency.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Policies create some structure but gray areas remain.</span></td>
+  <!-- Org concerns -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Org controls policies. Can restrict outflow. But policy gaps create risk.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Policy framework supports audit. But personal data in system complicates GDPR/privacy.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Org sets and enforces policies. Retains control of the system.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Good context access, though policies may limit some cross-domain intelligence.</span></td>
+  <!-- Viability -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Moderate. Requires policy engine, classification, enforcement layer.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Mostly seamless. Occasional friction when policies block useful cross-domain info.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">DLP and classification tools exist. Applying them to AI context is new but doable.</span></td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M3</span> Hard partition<span class="model-desc">Separate memory stores, one interface.</span></td>
+  <!-- Employee conflicts -->
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Architectural separation protects by default. Bridge is user-controlled.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Real separation. Single interface may create cognitive blurring.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Data must go to one store or the other. Classification problem remains.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Personal store is separable. Clean cut possible in principle.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Partitioned data but shared agent. One optimization function still.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Architecture is inspectable. But who controls the bridge?</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Cross-domain mistakes limited by partition.</span></td>
+  <!-- Org concerns -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Work data stays in work partition. But user-controlled bridge is a potential leak vector.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Work partition is auditable. Personal partition is opaque to org. Bridge actions hard to audit.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Org controls work partition but not the shared interface or personal side.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Good within work domain. Cross-domain intelligence only when user bridges.</span></td>
+  <!-- Viability -->
+  <td class="mixed section-break"><span class="cell-label">Mixed</span><span class="cell-detail">Significant engineering. Two memory systems, bridge logic, context-switching under one UI.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">One interface but user must actively manage which context they're in. Cognitive overhead.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Technically feasible but no major product has built this yet.</span></td>
+</tr>
+
+<!-- Group: Single-Assistant, Flipped Ownership -->
+<tr class="group-row"><td colspan="15">Single-Assistant Models — Flipped Ownership</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M4</span> User-owned<span class="model-desc">Individual's assistant, granted access to employer systems.</span></td>
+  <!-- Employee conflicts -->
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">User controls the system. Personal data under personal control.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">User decides what crosses the boundary.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Org can't see career exploration unless user shares.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">User owns everything. Revoke employer access on departure.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">User's assistant, user's optimization.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Full visibility into own system. Org loses transparency.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Who's liable when user's agent makes work errors?</span></td>
+  <!-- Org concerns -->
+  <td class="severe section-break"><span class="cell-label">Severe</span><span class="cell-detail">Uncontrolled agent with access to corporate data. Can't audit, can't govern, can't restrict.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">No audit trail accessible to org. Compliance nightmare.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">Org loses all control. Can't configure, restrict, or manage the tool employees use for work.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Good personal productivity. But org can't ensure it's used for work priorities.</span></td>
+  <!-- Viability -->
+  <td class="mixed section-break"><span class="cell-label">Mixed</span><span class="cell-detail">API integration needed. Org must build access endpoints. Auth/permissioning complex.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Seamless for user — one assistant they fully control.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Few orgs would grant uncontrolled AI agents access to internal systems. BYOD-AI is not yet accepted.</span></td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M5</span> Company-owned<span class="model-desc">Employer's assistant, employee grants access to personal data.</span></td>
+  <!-- Employee conflicts -->
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Data enters a system employee doesn't control. Revocation may be incomplete.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Employee controls what enters, but once in, separation depends on org.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Org-owned system may surface development signals to management.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Org controls what happens to personal data on departure.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Org's optimization function. Personal extensions don't change loyalty.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Can't inspect optimization logic. Trust depends on org's good faith.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Org owns system, clearer work liability. Personal mistakes in a gap.</span></td>
+  <!-- Org concerns -->
+  <td class="strong section-break"><span class="cell-label">Strong</span><span class="cell-detail">Org owns and controls the system. Full governance over corporate data.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Full audit trail. Org-controlled compliance. Personal data adds some GDPR complexity.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Full control over the assistant's configuration, policies, and optimization.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Good work productivity. Personal context enriches if employee trusts enough to share.</span></td>
+  <!-- Viability -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Org builds the system; personal integration is optional APIs. Moderate complexity.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Familiar model — like a company laptop you add personal accounts to.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">This is essentially what Copilot/Glean are evolving toward. Closest to market reality.</span></td>
+</tr>
+
+<!-- Group: Two-Assistant Models -->
+<tr class="group-row"><td colspan="15">Two-Assistant Models</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M6</span> Two assistants, user-managed<span class="model-desc">Separate systems in shared user environment. User bridges with low friction.</span></td>
+  <!-- Employee conflicts -->
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Personal data in personal assistant only. Shared environment doesn't merge data.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Separation is the architecture. Shared environment is a convenience layer, not a data layer.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Development in personal assistant. Work sees only what user explicitly passes.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Personal assistant is portable. Work assistant stays. Clean separation.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Each serves its own master. No ambiguity.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Transparent within each domain. No hidden cross-domain influence.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Clear per-domain. Cross-domain mistakes fall on the user who bridged.</span></td>
+  <!-- Org concerns -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Work assistant is org-controlled. But shared environment means personal assistant is "nearby" corp data.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Work assistant auditable. Shared environment creates a surface org may want to govern.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Full control over work assistant. Can't prevent user from passing info to personal side.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Work assistant lacks personal context. But low-friction bridging makes selective sharing practical.</span></td>
+  <!-- Viability -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Two separate products coordinating via standard protocols. No shared platform needed — simpler than M7.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Low-friction bridging on user's own device. Better UX than M8 but still requires user initiative.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Protocol building blocks exist. Needs adoption and integration UX, not new invention.</span></td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M7</span> Two assistants, AI-mediated<span class="model-desc">Separate systems + AI coordination layer.</span></td>
+  <!-- Employee conflicts -->
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Personal data stays in personal assistant. Coordinator sees only what's shared.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Real separation with smart bridging. Coordinator must be carefully scoped.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Can surface tensions without leaking development intent.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Core assistants separate like M6. Coordinator memory is a new question.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Each assistant serves its master. But who does the coordinator serve?</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Better than unified. But coordinator adds opacity — who audits the broker?</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Per-domain clear. Coordination layer is a new liability node.</span></td>
+  <!-- Org concerns -->
+  <td class="adequate section-break"><span class="cell-label">Adequate</span><span class="cell-detail">Work assistant is org-controlled. Coordinator is a scoped interface — narrower than full access.</span></td>
+  <td class="mixed"><span class="cell-label">Mixed</span><span class="cell-detail">Work side auditable. Coordinator's decisions harder to audit. New compliance surface.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Full control over work assistant. Shared control of coordination layer with employee.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Cross-domain intelligence via coordinator. Less than M1 but without manual bridging overhead.</span></td>
+  <!-- Viability -->
+  <td class="problematic section-break"><span class="cell-label">Problematic</span><span class="cell-detail">Three AI systems. But protocol standards exist (A2A + DIDComm V2 + VC 2.0 with ZKPs/SD-JWTs). Engineering is hard, not unsolved.</span></td>
+  <td class="adequate"><span class="cell-label">Adequate</span><span class="cell-detail">Coordination reduces manual burden. But three systems to manage and understand.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">Protocol building blocks are in production for enterprise use. No consumer product exists yet — vendors focus on enterprise, not personal.</span></td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M8</span> Two assistants, complete separation<span class="model-desc">Separate environments, separate devices. No shared surface. Like two phones.</span></td>
+  <!-- Employee conflicts -->
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Maximum protection. No data path exists. No shared environment.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Total separation. No blurring possible. Different devices/platforms.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">No cross-domain visibility whatsoever.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Cleanest separation. Fully independent systems.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Each has exactly one master. No ambiguity.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Fully transparent within each domain. Zero cross-domain influence.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Cleanest liability. Each domain fully owns its mistakes.</span></td>
+  <!-- Org concerns -->
+  <td class="strong section-break"><span class="cell-label">Strong</span><span class="cell-detail">Complete isolation. No shared surface means no leakage vector at all.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Fully auditable. No external dependencies or surfaces.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Total control. Work assistant is entirely org-managed on org devices.</span></td>
+  <td class="problematic"><span class="cell-label">Problematic</span><span class="cell-detail">No personal context at all. No cross-domain scheduling. Work-only tool.</span></td>
+  <!-- Viability -->
+  <td class="strong section-break"><span class="cell-label">Strong</span><span class="cell-detail">Trivial. Two unrelated products on separate devices.</span></td>
+  <td class="severe"><span class="cell-label">Severe</span><span class="cell-detail">All bridging requires manual effort outside both systems. Retyping, emailing yourself. High friction.</span></td>
+  <td class="strong"><span class="cell-label">Strong</span><span class="cell-detail">Already the default reality — the absence of architecture.</span></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+<div class="note-box">
+  <strong>How to read this matrix:</strong> Columns C1–C7 evaluate from the <strong>employee's perspective</strong> (how well does this model protect the individual's interests?). Columns O1–O4 evaluate from the <strong>organization's perspective</strong> (how well does this model serve the company's interests?). Columns V1–V3 evaluate <strong>practical viability</strong> (how complex, usable, and buildable is this model?). The right model is the one that finds an acceptable balance across all three perspectives — not the one that maximizes any single dimension.
+</div>
+
+<div class="note-box" style="margin-top: 12px;">
+  <strong>Key observation:</strong> Models that score well for the employee (M4) tend to score poorly for the organization, and vice versa (M1, M5). M8 offers maximum protection but at a UX cost that undermines the employee's actual interests. M6 emerges as the most balanced model — strong for the employee, adequate for the org, and viable with existing protocol standards. M7 adds AI-mediated coordination for a better UX but at higher implementation cost. The design question is whether M6's user-managed coordination is sufficient or whether the market will demand M7's automation.
+</div>
+
+</body>
+</html>

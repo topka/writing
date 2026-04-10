@@ -1,4 +1,4 @@
-*Published at [https://substack.com/@topka/p-190617441](https://substack.com/@topka/p-190617441) on March 11, 2026*
+*Published at [https://topka.substack.com/p/your-new-teammate-has-no-ego-no-judgment](https://topka.substack.com/p/your-new-teammate-has-no-ego-no-judgment) on March 11, 2026*
 
 ---
 

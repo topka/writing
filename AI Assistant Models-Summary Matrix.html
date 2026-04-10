@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Personal Assistant — Models Summary Matrix</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #1a1a1a; padding: 32px; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 6px; }
+  .subtitle { font-size: 14px; color: #666; margin-bottom: 24px; }
+  .matrix-wrapper { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; max-width: 1100px; font-size: 13px; }
+  th, td { border: 1px solid #d0d0d0; padding: 12px 14px; text-align: left; vertical-align: top; }
+  th { background: #2c3e50; color: #fff; font-weight: 600; }
+  td.model-label { background: #f0f4f8; font-weight: 600; min-width: 200px; white-space: nowrap; }
+  td.model-label .model-num { color: #2c3e50; }
+  td.model-label .model-desc { font-weight: 400; color: #555; display: block; font-size: 12px; white-space: normal; margin-top: 3px; line-height: 1.4; }
+  .group-row td { background: #2c3e50; color: #fff; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  td.cell { line-height: 1.5; font-size: 13px; min-width: 220px; }
+  td.cell .rating { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.3px; display: inline-block; padding: 2px 8px; border-radius: 3px; margin-bottom: 5px; }
+  .r-severe { background: #fde8e8; color: #8b1a1a; }
+  .r-problematic { background: #fff3e0; color: #8b5e00; }
+  .r-mixed { background: #fffde7; color: #6d6200; }
+  .r-adequate { background: #e8f5e9; color: #2e6b2e; }
+  .r-strong { background: #c8e6c9; color: #1b5e20; }
+</style>
+</head>
+<body>
+
+<h1>AI Personal Assistant Models — Summary Evaluation</h1>
+<p class="subtitle">Each model evaluated from three perspectives. Working draft, March 2026.</p>
+
+<div class="matrix-wrapper">
+<table>
+<thead>
+<tr>
+  <th style="min-width:200px;">Model</th>
+  <th>Employee's Perspective</th>
+  <th>Organization's Concerns</th>
+  <th>Practical Viability</th>
+</tr>
+</thead>
+<tbody>
+
+<tr class="group-row"><td colspan="4">Single-Assistant Models</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M1</span> Fully unified<span class="model-desc">One assistant, one memory, one context, no boundaries.</span></td>
+  <td class="cell"><span class="rating r-severe">Severe</span><br>Worst case — all personal data exposed, no control over whose interests the assistant serves, no recourse on departure.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Attractive — full control, maximum productivity potential, simple to manage. But holding personal data creates new regulatory exposure.</td>
+  <td class="cell"><span class="rating r-strong">Strong</span><br>Trivially buildable. This is what the market is actually shipping today.</td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M2</span> Soft separation<span class="model-desc">One assistant, one system, policy-based rules governing cross-domain data flow.</span></td>
+  <td class="cell"><span class="rating r-problematic">Problematic</span><br>Better than M1 but depends entirely on who writes the policies and whether they hold. Data still co-exists in one system, so protection is only as good as enforcement.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Workable — retains control, can set policies, supports audit. But policy complexity grows fast and personal data still complicates compliance.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Moderate complexity. DLP and classification tools exist; applying them to AI context is new but doable.</td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M3</span> Hard partition<span class="model-desc">One assistant interface, two separate memory stores, user-controlled bridge.</span></td>
+  <td class="cell"><span class="rating r-mixed">Mixed</span><br>Real architectural protection. But one interface still means one optimization function — the agent's loyalty is ambiguous even if the data is cleanly separated.</td>
+  <td class="cell"><span class="rating r-mixed">Mixed</span><br>Partial control — governs the work partition but can't see the personal side, and the user-controlled bridge is a potential leak vector.</td>
+  <td class="cell"><span class="rating r-mixed">Mixed</span><br>Significant engineering that nobody has built yet. User must actively manage which context they're in, adding cognitive overhead.</td>
+</tr>
+
+<tr class="group-row"><td colspan="4">Single-Assistant Models — Flipped Ownership</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M4</span> User-owned<span class="model-desc">Individual owns the assistant; employer grants access to work systems.</span></td>
+  <td class="cell"><span class="rating r-strong">Strong</span><br>Strongest model for the individual — full ownership, full control, knowledge stays on departure.</td>
+  <td class="cell"><span class="rating r-severe">Severe</span><br>Near-unacceptable — an uncontrolled AI agent accessing corporate data with no audit trail, no governance, no ability to restrict or configure.</td>
+  <td class="cell"><span class="rating r-problematic">Problematic</span><br>Few organizations would allow this today. BYOD-for-AI is not an accepted practice.</td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M5</span> Company-owned<span class="model-desc">Employer owns the assistant; employee optionally connects personal data and tools.</span></td>
+  <td class="cell"><span class="rating r-problematic">Problematic</span><br>Familiar pattern (like a company laptop) but structurally problematic — data enters a system the employee doesn't control, and the agent's optimization serves the employer regardless of personal extensions.</td>
+  <td class="cell"><span class="rating r-strong">Strong</span><br>Strongest model for the company — full ownership, full audit, full control over configuration and optimization.</td>
+  <td class="cell"><span class="rating r-strong">Strong</span><br>Closest to current market reality. Essentially what Copilot and Glean are evolving toward.</td>
+</tr>
+
+<tr class="group-row"><td colspan="4">Two-Assistant Models</td></tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M6</span> Two assistants, user-managed<span class="model-desc">Separate assistants in a shared user environment; user bridges with low friction.</span></td>
+  <td class="cell"><span class="rating r-strong">Strong</span><br>Clean separation with easy bridging — both assistants live in a shared environment, so passing information is low-friction while still intentional and user-controlled.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Clean and controllable — work assistant is fully org-managed, and the shared environment means some governance of cross-domain interactions is possible.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Two separate products on the user's own device, coordinating via standard protocols. No shared platform needed — just protocol adoption and smooth integration UX.</td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M7</span> Two assistants, AI-mediated<span class="model-desc">Separate assistants plus a third AI coordination layer that brokers cross-domain interactions.</span></td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Best balance of separation and intelligence — real domain boundaries with an AI broker that can surface conflicts and pass selective information without manual effort.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Reasonable — work assistant stays org-controlled, coordination layer is a scoped interface. But the coordinator is a new system to audit and govern.</td>
+  <td class="cell"><span class="rating r-problematic">Problematic</span><br>Protocol building blocks exist in production (A2A + DIDComm V2 + VC 2.0 with ZKPs/SD-JWTs). But no consumer product yet — existing vendors focus on enterprise, not personal assistant coordination.</td>
+</tr>
+
+<tr>
+  <td class="model-label"><span class="model-num">M8</span> Two assistants, complete separation<span class="model-desc">Separate environments, separate devices, no shared surface. Like two phones.</span></td>
+  <td class="cell"><span class="rating r-mixed">Mixed</span><br>Maximum protection but maximum inconvenience — separate devices with no shared surface, like carrying a work phone and a personal phone that never touch. Protection is strong, but the UX cost undermines the value of having a personal assistant at all.</td>
+  <td class="cell"><span class="rating r-adequate">Adequate</span><br>Perfect isolation and control. But the work assistant has zero personal context, limiting holistic productivity — the org pays for a "personal assistant" that can only assist with work tasks.</td>
+  <td class="cell"><span class="rating r-mixed">Mixed</span><br>Already the default reality — just using two unrelated AI products. But the UX of all-manual bridging defeats much of the personal assistant purpose.</td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+</body>
+</html>

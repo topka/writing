@@ -1,4 +1,4 @@
-*Published at [https://substack.com/home/post/p-191594537](https://substack.com/home/post/p-191594537) on March 20, 2026*
+*Published at [https://topka.substack.com/p/all-the-calls-land-on-you](https://topka.substack.com/p/all-the-calls-land-on-you) on March 20, 2026*
 
 ---
 
