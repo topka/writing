@@ -1,0 +1,23 @@
+Published at [https://topka.substack.com/p/the-tool-trap](https://topka.substack.com/p/the-tool-trap) on June 24 2026
+
+# ---
+
+# The "Tool" Trap
+
+## Do We Correctly Categorize What AI Agents Are (or What They Are Not)?
+
+We use the term "*tool*" almost automatically. It feels safe, modest, accurate. But it also borrows a reputation that may actually not belong to the thing we're describing. And there’s a trap…
+
+**Rung one: the hammer.** Picture a hammer. If you've never used one — there's a real chance you hit your finger or waste a nail. But that failure falls entirely on you. The hammer's behavior is fixed and fully knowable in advance: hold it properly, swing correctly, the nail goes in, every time, no exceptions. There is no version of events where the hammer misread your intent (It had nothing to interpret) or you can’t know why something happened the way it happened.
+
+**Rung two: software.** This is what people usually mean when they say "tool," even if they're picturing a hammer. Software is a black box most of us don't understand — we can't read the code, can't predict every edge case, get surprised by bugs regularly. That's real opacity. But it's opacity of a particular kind: the software is opaque to you, not to itself. Ask why it did something, and there is always a true answer, even if you personally can't reach it. Run the same input twice, you get the same output, every time. When it fails, it's executing exactly what it was built to do — the failure is a gap between what the designer/developer intended and what got coded, fully resolvable in principle by reading far enough into the logic (e.g. debugging). Software never makes a judgment call. It also, notably, tends to guard against misuse on purpose — type constraints, validation, greyed-out buttons. Software is frequently designed to prevent you from doing the wrong thing in the first place.
+
+**Rung three: agents.** Here the opacity doubles. Whereas software is an Excel macro that runs a payroll script, an agent is given a goal ("minimize our tax liability this quarter") and goes hunting for data paths nobody explicitly mapped out. By *agent* I mean any AI system that interprets a goal and selects its own path toward it. That unpredictability is not a flaw or a bug, it is what enables its capability. Harnessed or not — the harness manages the nature, it doesn't change what the thing is. An agent is unpredictable to you, and in a real sense unpredictable to itself — the same prompt, repeated, can take a different path each time, weigh things differently, land somewhere else. But that's not a bigger version of software's black box. It's a different axis entirely. Software's unpredictability is a fact about your limited knowledge of a fixed thing. An agent's unpredictability is a fact about the thing not being fixed across runs.
+
+This is the real line: **the misunderstanding line**. Software breaks. Agents misunderstand. The test isn't whether something can go wrong — hammers and software both go wrong constantly. The test is whether there's a single, fixed reason it went wrong, traceable in principle, or whether the system made an interpretive call that could have landed elsewhere with nothing about your input changed. A broken hammer or a faulty piece of software both have a reason, even if you can't immediately find it. An agent that misunderstood you may have no single reason to find — just a call it made, in that run, that another run might have made differently.
+
+Most people calling agents "tools", or seeing them as such, aren't wrong about software's history of being misunderstood and still trusted. They're wrong about which side of the line they've carried that trust across — confidence earned by one category of system, quietly spent on another.
+
+And there is a concrete cost of categorizing wrong. When something breaks, you debug it to find that fixed reason. When something misunderstands, the questions are different: about intent, about interpretation, about what call the system made and why it could have gone another way. Those questions don't arise naturally if your mental model says you're holding a tool. They don't get asked, so they don't get answered. Trust miscalibrates, accountability diffuses. The judgment burden lands on whoever is closest — not because the technology failed, but because the category did.
+
+Call it a tool, use it as a tool, and you stop asking whether it understood you. Name it right and the questions that actually matter become visible and clear. Not *"What bug caused this?"* but "What did I fail to tell it about my intent?" Not quality assurance, but supervision and judgment oversight. That's the whole point of drawing **the misunderstanding line**.
